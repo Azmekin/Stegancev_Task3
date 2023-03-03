@@ -9,7 +9,7 @@ Homework to fintechhub on Django Framework.
 
 Использованны методы авторизации библиотеки simpleJWT, установлены дополнительные правила для вывода списка всех задач (IsAdmin), метод регистрации доступен для всех.
 
-Список методов по просьбе фронтендеров:
+Список методов по просьбе фронтендеров (поля для заполнения отобразятся при открытии ссылки на бэкэнде с указанным режимом доступа):
 
 What we have:
 
@@ -28,3 +28,4 @@ workspace/?workplace_id=<int>  - get all tasks in the workspace with equal id
 register/ - create new user
 
 bugreport/ - send bugreport
+
