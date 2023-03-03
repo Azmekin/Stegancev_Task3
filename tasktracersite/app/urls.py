@@ -2,13 +2,13 @@
 
 What we have:
 get_all/ - take all tasks from table (only for authorized admin)
-change_task/<int:pk> - update or delete task
-create_task/ - create task
-profile/?login=<int> - get addicted info about user with equal id
-user/?login=<int> - get main info about user with equal id
-workspace/?workplace_id=<int>  - get all tasks in the workspace with equal id
-register/ - create new user
-bugreport/ - send bugreport
+change_task/<int:pk> - update or delete task (only for authorized)
+create_task/ - create task (only for authorized)
+profile/?login=<int> - get addicted info about user with equal id (only for authorized)
+user/?login=<int> - get main info about user with equal id (only for authorized)
+workspace/?workplace_id=<int>  - get all tasks in the workspace with equal id (only for authorized)
+register/ - create new user (for all)
+bugreport/ - send bugreport (only for authorized)
 """
 from django.urls import path
 from .views import *

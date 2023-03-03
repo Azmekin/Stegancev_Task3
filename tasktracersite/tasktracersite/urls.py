@@ -2,7 +2,7 @@
 tasktracersite URL Configuration
 
 What we have:
-admin/ - admin panel
+admin/ - admin panel (for admin)
 api/ - URL from app/urls.py
 auth/token/ - get token
 auth/refresh - refresh token
