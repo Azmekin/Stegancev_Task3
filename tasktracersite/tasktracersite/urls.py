@@ -23,6 +23,6 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('app.urls')),
-    path('auth/token',TokenObtainPairView.as_view()),
-    path('auth/refresh',TokenRefreshView.as_view()),
+    path('auth/token', TokenObtainPairView.as_view()),
+    path('auth/refresh', TokenRefreshView.as_view()),
 ]
