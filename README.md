@@ -13,19 +13,22 @@ Homework to fintechhub on Django Framework.
 
 What we have:
 
-get_all/ - take all tasks from table (only for authorized admin)
+app/get_all/ - take all tasks from table (only for authorized admin)
 
-change_task/<int:pk> - update or delete task
+app/change_task/<int:pk> - update or delete task (only for authorized)
 
-create_task/ - create task
+app/create_task/ - create task (only for authorized)
 
-profile/?login=<int> - get addicted info about user with equal id
+app/profile/?login=<int> - get addicted info about user with equal id (only for authorized)
 
-user/?login=<int> - get main info about user with equal id
+app/user/?login=<int> - get main info about user with equal id (only for authorized)
 
-workspace/?workplace_id=<int>  - get all tasks in the workspace with equal id
+app/workspace/?workplace_id=<int>  - get all tasks in the workspace with equal id (only for authorized)
 
-register/ - create new user
+app/register/ - create new user (for all)
 
-bugreport/ - send bugreport
+app/bugreport/ - send bugreport (only for authorized)
 
+auth/token - get token (login)
+  
+auth/refresh - refresh token 
