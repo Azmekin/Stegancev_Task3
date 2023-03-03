@@ -1,13 +1,19 @@
-from django.shortcuts import render
-
-# Create your views here.
-from rest_framework.generics import CreateAPIView
-from rest_framework.response import Response
-
-from .models import *
+"""All views:
+    TaskTrackerList - made for return all tasks (only for admin)
+    TaskTrackerCreate - made for make task (only for authorized)
+    TaskTrackerDetail - made for delete or update task (only for authorized)
+    WorkplaceTasks - made for return tasks from workplace where id of workplace
+is equal request param (only for authorized)
+    ProfileAsk - made for return info about profile where id of user equal
+request param (only for authorized)
+    ShowUserView - made for return info about user where id of user equal
+request param (only for authorized)
+    CreateUserView - made for make new users (for all)
+    BugreportCreate - made for create description about bug (only for authorized)
+"""
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .serializers import *
 from rest_framework import generics
+from .serializers import *
 
 
 class TaskTrackerList(generics.ListAPIView):
@@ -21,6 +27,12 @@ class TaskTrackerCreate(generics.CreateAPIView):
     """Create new task"""
     permission_classes = [IsAuthenticated]
     serializer_class = TaskTrackerSerializer
+
+
+class BugreportCreate(generics.CreateAPIView):
+    """Create new bugreport"""
+    permission_classes = [IsAuthenticated]
+    serializer_class = BugReportSerializer
 
 
 class TaskTrackerDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -58,7 +70,7 @@ class WorkplaceTasks(generics.ListAPIView):
         return queryset
 
 
-class CreateUserView(CreateAPIView):
+class CreateUserView(generics.CreateAPIView):
     """Create new user"""
     model = get_user_model()
     serializer_class = UserSerializer
@@ -79,4 +91,3 @@ class ShowUserView(generics.ListAPIView):
         else:
             queryset = {}
         return queryset
-

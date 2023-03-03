@@ -1,8 +1,11 @@
+""" All models:
+Profile - addicted info of user
+Bugreport - info about bugs
+Workplace - host place for tasks
+TaskTracker - info about one task
+"""
 from django.db import models
 from django.contrib.auth.models import User
-
-
-# Create your models here.
 
 
 class Profile(models.Model):
@@ -13,8 +16,8 @@ class Profile(models.Model):
     length_of_last_session_minute = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
-        return f'Login: {self.login}, Company: {self.company}, Last seen: {self.last_seen}'
-
+        return f'Login: {self.login}, Company: {self.company}, ' \
+               f'Last seen: {self.last_seen}'
 
 
 class BugReport(models.Model):
@@ -30,7 +33,6 @@ class BugReport(models.Model):
                f'sender: {self.login}'
 
 
-
 class Workplace(models.Model):
     owner = models.ManyToManyField(User)
     title = models.TextField(max_length=50)
@@ -40,6 +42,7 @@ class Workplace(models.Model):
         return f'Owner:{self.owner}, ' \
                f'title: {self.title}, ' \
                f'description: {self.description}'
+
 
 class TaskTracker(models.Model):
     DONE = "DE"

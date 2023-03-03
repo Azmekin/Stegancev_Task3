@@ -1,21 +1,18 @@
 """tasktracersite URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+What we have:
+get_all/ - take all tasks from table (only for authorized admin)
+change_task/<int:pk> - update or delete task
+create_task/ - create task
+profile/?login=<int> - get addicted info about user with equal id
+user/?login=<int> - get main info about user with equal id
+workspace/?workplace_id=<int>  - get all tasks in the workspace with equal id
+register/ - create new user
+bugreport/ - send bugreport
 """
 from django.urls import path
 from .views import *
-from django.contrib.auth import get_user_model
+
 
 urlpatterns = [
     path('get_all/', TaskTrackerList.as_view()),
@@ -24,8 +21,8 @@ urlpatterns = [
     path('profile/', ProfileAsk.as_view()),
     path('workplace/', WorkplaceTasks.as_view()),
     path('register/', CreateUserView.as_view()),
-
     path('user/', ShowUserView.as_view()),
+    path('bugreport/', BugreportCreate.as_view()),
 
 
 ]
